@@ -17,9 +17,6 @@ const userSchema = new mongoose.Schema( {
     respondedIn: {
         type: []
     },
-    formCreator: {
-        type: []
-    }
     }, {timestamps: true});
 
 export default mongoose.model('user', userSchema)
