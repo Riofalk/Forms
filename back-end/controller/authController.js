@@ -6,8 +6,9 @@ dotenv.config();
 
 export const createUser = async (req, res) => {
     try {
+        const { password } = req.body 
         const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(req.body.password, salt)
+        const hash = bcrypt.hashSync(password, salt)
         const newUser = new userModel({
             ... req.body,
             password: hash
@@ -24,11 +25,12 @@ export const createUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
     try {
-        const user = await userModel.findOne( {email: req.body.email})
+        const { password, email } = req.body 
+        const user = await userModel.findOne( {email: email})
 
         if (!user)  return res.status(404).send("User or password is not correct")
 
-        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
+        const isPasswordCorrect = await bcrypt.compare(password, user.password)
 
         if (!isPasswordCorrect)  return res.status(404).send("User or password is not correct")
 

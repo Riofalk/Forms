@@ -17,11 +17,34 @@ const formSchema = new mongoose.Schema( {
         type: Number,
         required: true
     },
+    responsOptions: {
+        type: [{ 
+            responsKey: {
+                type: Number,
+                min: 1,
+                required: true,
+            },
+            reposnsOption: {
+                type: String,
+                required: true,
+            }
+        }],
+    },
     responded: {
-        type: [],
+        type: [{
+            id: {
+                type: String,
+                required: true,
+            }
+        }],
     },
     responses: {
-        type: [],
+        type: [{
+            id: {
+                type: String,
+                required: true,
+            }
+        }],
     },
     }, {timestamps: true});
 

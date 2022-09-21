@@ -6,8 +6,19 @@ const responsSchema = new mongoose.Schema( {
         default: false,
         required: true,
     },
-    response: {
-        type: [],
+    responses: {
+        type: [{
+            responsKey: {
+                type: Number,
+                min: 1,
+                required: true,
+            },
+            reposnsValue: {
+                type: Number,
+                min: 1,
+                required: true,
+            }
+        }],
     },
     userId: {
         type: String,
