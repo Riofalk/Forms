@@ -13,6 +13,10 @@ const formSchema = new mongoose.Schema( {
         type: Boolean,
         default: false,
     },
+    formLength: {
+        type: Number,
+        required: true
+    },
     responded: {
         type: [],
     },

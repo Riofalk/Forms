@@ -19,4 +19,4 @@ const responsSchema = new mongoose.Schema( {
     }
     }, {timestamps: true});
 
-export default mongoose.model('response', responseSchema)
+export default mongoose.model('respons', responsSchema)
