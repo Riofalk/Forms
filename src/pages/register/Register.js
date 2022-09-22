@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import "./register.css";
+import axios from "axios";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -47,8 +48,15 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
+    console.log(JSON.stringify({ user, pwd }));
+    await axios("http://localhost:3001/register", {
+      method: "POST",
+      body: JSON.stringify({ user, pwd }),
+    }).then(function (response) {
+      console.log(response);
+    });
+
     e.preventDefault();
-    console.log(user, pwd);
   };
 
   return (
