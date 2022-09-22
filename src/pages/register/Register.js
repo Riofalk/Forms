@@ -49,14 +49,15 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     console.log(JSON.stringify({ user, pwd }));
-    await axios("http://localhost:3001/register", {
-      method: "POST",
-      body: JSON.stringify({ user, pwd }),
-    }).then(function (response) {
-      console.log(response);
-    });
-
-    e.preventDefault();
+    try {
+      const { data } = await axios.post("http://localhost:3001/register", {
+        user: user,
+        pwd: pwd,
+      });
+      document.cookie = `session_token=${data}`;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
