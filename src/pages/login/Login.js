@@ -41,6 +41,7 @@ const Login = () => {
         <form>
           <label htmlFor="username">Username:</label>
           <input
+            autoFocus
             type="text"
             id="username"
             ref={userRef}

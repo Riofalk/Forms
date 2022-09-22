@@ -39,7 +39,7 @@ export const loginUser = async (req, res) => {
     return res
       .cookie("session_token", token, { httpOnly: true })
       .status(201)
-      .send(`Successfully logged in!`);
+      .send(`Successfully logged in! ${token}`);
   } catch (error) {
     console.error(error);
   }
