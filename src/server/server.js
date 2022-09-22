@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import { createUser } from "./controller/authController.js";
+import { createUser, loginUser } from "./controller/authController.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 
@@ -32,6 +32,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/register", createUser);
+
+app.post("/login", loginUser);
 
 app.listen(port, () => {
   connectionToDB();
