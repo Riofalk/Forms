@@ -11,13 +11,11 @@ import {
 
 const Login = () => {
   const userRef = useRef();
-  const errRef = useRef();
 
+  const [error, setError] = useState(false);
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
-
-  const [errMsg, setErrMsg] = useState("");
 
   const handleSubmit = async (e) => {
     console.log(JSON.stringify({ user, pwd }));
@@ -31,13 +29,15 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
+    e.preventDefault();
   };
 
   return (
     <div className="wrapper">
       <section className="loginContainer">
         <h1>Log in</h1>
-        <form onSubmit={handleSubmit}>
+        {error && <div className="errmsg">Invalid username or password</div>}
+        <form>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -56,7 +56,11 @@ const Login = () => {
             value={pwd}
             required
           />
-          <button className={loginSuccess ? "buttonSuccess" : "buttonFailure"}>
+          <button
+            onClick={handleSubmit}
+            type="button"
+            className={loginSuccess ? "buttonSuccess" : "buttonFailure"}
+          >
             Log In
           </button>
         </form>
