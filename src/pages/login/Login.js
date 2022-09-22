@@ -1,13 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "./login.css";
 import axios from "axios";
-import {
-  Redirect,
-  Link,
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Login = () => {
   const userRef = useRef();
@@ -16,8 +10,7 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(false);
-
-  const handleSubmit = async (e) => {
+  const HandleSubmit = async (e) => {
     console.log(JSON.stringify({ user, pwd }));
     try {
       const { data } = await axios.post("http://localhost:3001/login", {
@@ -25,7 +18,7 @@ const Login = () => {
         pwd: pwd,
       });
       document.cookie = `session_token=${data}`;
-      setLoginSuccess(true);
+      console.log(data);
     } catch (error) {
       setError(true);
       console.error(error);
@@ -59,7 +52,7 @@ const Login = () => {
             required
           />
           <button
-            onClick={handleSubmit}
+            onClick={HandleSubmit}
             type="button"
             className={loginSuccess ? "buttonSuccess" : "buttonFailure"}
           >
@@ -70,6 +63,9 @@ const Login = () => {
           <br />
           <span className="line">
             <Link to="/register">Register</Link>
+          </span>
+          <span className="lineHome">
+            <Link to="/">Home</Link>
           </span>
         </p>
       </section>
