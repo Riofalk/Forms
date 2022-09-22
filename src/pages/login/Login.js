@@ -27,6 +27,7 @@ const Login = () => {
       document.cookie = `session_token=${data}`;
       setLoginSuccess(true);
     } catch (error) {
+      setError(true);
       console.error(error);
     }
     e.preventDefault();
