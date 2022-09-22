@@ -5,9 +5,15 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
+import {
+  Redirect,
+  Link,
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -27,6 +33,7 @@ const Register = () => {
   const [matchPwd, setMatchPwd] = useState("");
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
 
@@ -55,6 +62,7 @@ const Register = () => {
         pwd: pwd,
       });
       document.cookie = `session_token=${data}`;
+      setRegisterSuccess(true);
     } catch (error) {
       console.error(error);
     }
@@ -182,6 +190,7 @@ const Register = () => {
 
           <button
             disabled={!validName || !validPwd || !validMatch ? true : false}
+            className={registerSuccess ? "buttonSuccess" : "buttonFailure"}
           >
             Sign Up
           </button>
