@@ -1,6 +1,7 @@
 import "./App.css";
 import Register from "./pages/register/Register.js";
 import Login from "./pages/login/Login.js";
+import Main from "./pages/main/Main.js";
 import {
   useNavigate,
   BrowserRouter as Router,
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </Router>
   );
