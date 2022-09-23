@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 
-function Header() {
+function Header(loggedIn) {
   return (
     <div className="headerWrapper">
       <div className="left">
@@ -15,7 +15,7 @@ function Header() {
           </Link>
         </span>
         <span className="linkSpan">
-          <Link to="/login" className="link">
+          <Link to="/register" className="link">
             Sign up
           </Link>
         </span>

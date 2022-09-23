@@ -9,7 +9,7 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
-  const [loginSuccess] = useState(false);
+  const [loginSuccess, setLoginSucces] = useState(false);
 
   const HandleSubmit = async (e) => {
     try {
@@ -17,13 +17,13 @@ const Login = () => {
         userName: user,
         password: pwd,
       }, {withCredentials: true}).then ((res) => {
-        
+        return res.status === 201 
       })
     } catch (error) {
       setError(true);
       console.error(error);
     }
-    e.preventDefault();
+    return false;
   };
 
   return (
@@ -52,9 +52,9 @@ const Login = () => {
             required
           />
           <button
-            onClick={HandleSubmit}
+            onClick={() => setLoginSucces(HandleSubmit)}
             type="button"
-            className={loginSuccess ? "buttonSuccess" : "buttonFailure"}
+            className = "buttonFailure"
           >
             Log In
           </button>

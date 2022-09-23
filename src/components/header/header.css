@@ -1,17 +1,17 @@
 * {
   overflow: hidden;
+  
 }
-body {
-  background: white;
-}
+
 .headerWrapper {
   display: flex;
   width: 100vw;
   height: 100px;
   font-family: "Open Sans", sans-serif;
   align-items: center;
-  background: #f4f4f4;
+  background-color: navajowhite;
 }
+
 .left {
   display: flex;
   flex-grow: 1;
@@ -29,6 +29,8 @@ body {
   font-size: 56px;
 }
 .linkSpan {
+  transition: 0.5s;
+  border-radius: 10px;
   margin-right: 4vw;
   padding: 4px;
   font-weight: 600;
@@ -37,8 +39,7 @@ body {
 }
 
 .linkSpan:nth-child(2) {
-  border-radius: 10px;
-  background: #ffffb7;
+  background: yellow;
   padding-left: 8px;
   padding-right: 8px;
 }
@@ -49,6 +50,7 @@ body {
 }
 
 .linkSpan:nth-child(2):hover {
+  transition: 0.5s;
   background: #ffff64;
 }
 

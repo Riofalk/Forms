@@ -56,11 +56,12 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     try {
-      const { data } = await axios.post("http://localhost:4000/api/register", {
+      await axios.post("http://localhost:4000/api/register", {
         userName: user.toLowerCase(),
         password: pwd,
+      }, {withCredentials: true}).then ((res) => {
+        console.log(res.status)
       });
-      document.cookie = `session_token=${data}`;
       setRegisterSuccess(true);
     } catch (error) {
       console.error(error);
