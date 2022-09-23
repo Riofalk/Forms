@@ -1,41 +1,40 @@
-import express from "express";
-import mongoose from "mongoose";
+import express  from "express";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import { createUser, loginUser } from "./controller/authController.js";
-import cors from "cors";
+import mongoose from "mongoose";
+import authRoute from "./routes/authRoute.js"
+import userRoute from "./routes/userRoute.js"
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import cors from "cors"
 
 const app = express();
-const port = 3001;
-dotenv.config();
+const port = 4000;
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
+
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}))
+
+app.use(express.json())
+dotenv.config();
+
+app.use('/api', authRoute);
+app.use('/api', userRoute);
 
 const connectionToDB = async () => {
-  try {
-    await mongoose.connect(process.env.DB_URL);
-    console.log("Connection to mongoDB is successfull!");
-  } catch (error) {
-    throw error;
-  }
+    try {
+        await mongoose.connect(process.env.MONGO_URL);
+    } catch(error) {
+        console.log(error);
+    };
 };
 
-app.get("/", (req, res) => {
-  res.send("working");
-});
-
-app.post("/register", createUser);
-
-app.post("/login", loginUser);
-
 app.listen(port, () => {
-  connectionToDB();
-  console.log(`server started on port ${port}`);
-});
+    connectionToDB();
+    console.log(`Server started on port ${port}`)
+})

@@ -1,6 +1,16 @@
 import mongoose from "mongoose";
 
 const formSchema = new mongoose.Schema( {
+    formName: {
+        type: String,
+    },
+    body: {
+        type: String,
+    },
+    anonyoms: {
+        type: Boolean,
+        default: true,
+    },
     formCreator: {
         type: String,
         required: true,
@@ -27,9 +37,13 @@ const formSchema = new mongoose.Schema( {
                 type: String, 
                 required: true
             },
+            blockType: {
+                type: String
+            },
             reposnsOption: [{
                 type: String
-            }]
+            }],
+            
         }],
     },
     responded: {

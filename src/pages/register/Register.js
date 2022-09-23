@@ -55,11 +55,10 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
-    console.log(JSON.stringify({ user, pwd }));
     try {
-      const { data } = await axios.post("http://localhost:3001/register", {
-        user: user,
-        pwd: pwd,
+      const { data } = await axios.post("http://localhost:4000/api/register", {
+        userName: user.toLowerCase(),
+        password: pwd,
       });
       document.cookie = `session_token=${data}`;
       setRegisterSuccess(true);

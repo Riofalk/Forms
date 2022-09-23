@@ -9,16 +9,16 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
-  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [loginSuccess] = useState(false);
+
   const HandleSubmit = async (e) => {
-    console.log(JSON.stringify({ user, pwd }));
     try {
-      const { data } = await axios.post("http://localhost:3001/login", {
-        user: user,
-        pwd: pwd,
-      });
-      document.cookie = `session_token=${data}`;
-      console.log(data);
+     await axios.post("http://localhost:4000/api/login", {
+        userName: user,
+        password: pwd,
+      }, {withCredentials: true}).then ((res) => {
+        
+      })
     } catch (error) {
       setError(true);
       console.error(error);
