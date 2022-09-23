@@ -1,5 +1,6 @@
 import formModel from "../models/formModel.js";
 
+
 export const getAllUserForms = async (req, res) => {
     try {
         const allUserForms = await formModel.find({}, {password:1});
@@ -10,3 +11,5 @@ export const getAllUserForms = async (req, res) => {
         console.log(error)
     }   
 }
+
+

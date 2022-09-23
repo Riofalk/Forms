@@ -17,17 +17,19 @@ const formSchema = new mongoose.Schema( {
         type: Number,
         required: true
     },
-    responsOptions: {
+    questionBlock: {
         type: [{ 
             responsKey: {
                 type: Number,
-                min: 1,
                 required: true,
             },
-            reposnsOption: {
-                type: String,
-                required: true,
-            }
+            question: {
+                type: String, 
+                required: true
+            },
+            reposnsOption: [{
+                type: String
+            }]
         }],
     },
     responded: {
@@ -46,6 +48,6 @@ const formSchema = new mongoose.Schema( {
             }
         }],
     },
-    }, {timestamps: true});
+    });
 
 export default mongoose.model('form', formSchema)
