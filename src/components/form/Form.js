@@ -1,21 +1,25 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import "./form.css";
 
-const form = (loggedIn) => {
-  // map through user created forms and display them 
-  //data.map = (Element) => {
-  //  return (
-  //      <div className="formLink">
-//
-  //      </div>
-  //  )
-  //}
-
+const forms = (loggedIn) => {
   return (
-    <div className="formLink"> Hello </div>
+    <>
+      <div className="formLink"> Hello </div>
+      <form/>
+    </>
   )
+}
+
+//map 
+const form = () => {
+  return (
+    <div> Hello</div>
+  )
+}
+
+const creatForm = () => {
+  
 }
 
 export default form;

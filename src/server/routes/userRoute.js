@@ -1,10 +1,10 @@
 import { getAllUserForms } from "../controller/userController.js";
-import { createForm } from "../controller/formController.js"
+import { tokenId } from "../utils/tokens.js";
 import express  from "express";
 
 const router = express.Router();
 
-router.get("/hello/:id", getAllUserForms)
-router.post("/createForm/:id", createForm)
+router.get("/getAllUserForms/:id", getAllUserForms)
+router.get("/getTokenId/", tokenId)
 
 export default router;

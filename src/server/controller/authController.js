@@ -34,8 +34,10 @@ export const loginUser = async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
 
         if (!isPasswordCorrect)  return res.status(404).send("User or password is not correct")
+        
+        const { _id, userForms} = user;
 
-        const token = jwt.sign({id: user._id}, process.env.KEY_GEN, {expiresIn: "2h"});
+        const token = jwt.sign({id: _id, userForms: userForms}, process.env.KEY_GEN, {expiresIn: "2h"});
         return res.
             cookie("session_token", token, {
             httpOnly: true,

@@ -10,6 +10,13 @@ const userSchema = new mongoose.Schema( {
         type: String,
         required: true,
     },
+    userForms: {
+        type: [{
+            type: String,
+            required: true,
+
+        }]
+    },
     respondedIn: {
         type: [{
             type: String,
