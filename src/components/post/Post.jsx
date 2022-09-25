@@ -2,32 +2,54 @@ import "./post.css";
 import placeholderImg from "../../img/placeholderProfileImg.png";
 import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
-function Post() {
+import { Users } from "../../dummyData.js";
+import { useState } from "react";
+function Post({ post }) {
+  const [like, setLike] = useState(post.like);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
+  };
+
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img src={placeholderImg} className="postProfileImg" />
-            <span className="postUsername">Stick Stickmanson</span>
-            <span className="postDate">5 mins ago</span>
+            <img
+              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
+              className="postProfileImg"
+            />
+            <span className="postUsername">
+              {Users.filter((u) => u.id === post.userId)[0].username}
+            </span>
+            <span className="postDate">{post.date}</span>
           </div>
           <div className="postTopRight">
             <MoreVert />
           </div>
         </div>
         <div className="postCenter">
-          <div className="postText">First post W00t!!!! ;))</div>
-          <img src={placeholderPostImg} className="postImg" />
+          <div className="postText">{post?.desc}</div>
+          <img
+            src={post.photo}
+            className="postImg"
+            alt="this works there's just no photos"
+          />
         </div>
+        <hr className="postHr" />
         <div className="postBottom">
           <div className="postBottomLeft">
-            <ThumbUp className="likeIcon" />
-            <Favorite className="likeIcon" />
-            <span className="postlikeCounter">32 people like this post</span>
+            <ThumbUp tabindex="1" className="likeIcon" onClick={likeHandler} />
+            <Favorite tabindex="2" className="likeIcon" onClick={likeHandler} />
+            <span className="postlikeCounter">
+              {like} people have liked this
+            </span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText">9 Comments</span>
+            <span className="postCommentText">{post.comment} Comments</span>
           </div>
         </div>
       </div>
