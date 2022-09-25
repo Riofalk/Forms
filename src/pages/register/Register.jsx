@@ -85,10 +85,11 @@ const Register = () => {
       <div className="register-right">
         <section className="registrationContainer">
           <ErrMsg errMsg={errMsg} />
-          <h1>Register</h1>
-          <form onSubmit={handleSubmit}>
+          <h1 className="loginHeader">Register</h1>
+          <form className="loginForm" onSubmit={handleSubmit}>
             <UsernameLabel validName={validName} user={user} />
             <input
+              className="logingInInput"
               type="text"
               id="username"
               ref={userRef}
@@ -109,6 +110,7 @@ const Register = () => {
 
             <PasswordLabel validPwd={validPwd} pwd={pwd} />
             <input
+              className="logingInInput"
               type="password"
               id="password"
               onChange={(e) => setPwd(e.target.value)}
@@ -123,6 +125,7 @@ const Register = () => {
 
             <ConfirmPasswordLabel validMatch={validMatch} matchPwd={matchPwd} />
             <input
+              className="logingInInput"
               type="password"
               id="confirm_pwd"
               onChange={(e) => setMatchPwd(e.target.value)}

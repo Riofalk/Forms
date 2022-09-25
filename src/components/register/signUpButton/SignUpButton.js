@@ -6,7 +6,7 @@ function SignUpButton(props) {
       disabled={
         !props.validName || !props.validPwd || !props.validMatch ? true : false
       }
-      className={props.registerSuccess ? "buttonSuccess" : "buttonFailure"}
+      className="logingInButton"
     >
       Sign Up
     </button>

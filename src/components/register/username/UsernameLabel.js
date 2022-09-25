@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function UsernameLabel(props) {
   return (
-    <label htmlFor="username">
+    <label className="logingInLabel" htmlFor="username">
       Username:
       <FontAwesomeIcon
         icon={faCheck}
