@@ -22,8 +22,8 @@ function Post() {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <ThumbUp className="likeIcon" />
-            <Favorite className="likeIcon" />
+            <ThumbUp tabindex="1" className="likeIcon" />
+            <Favorite tabindex="2" className="likeIcon" />
             <span className="postlikeCounter">32 people like this post</span>
           </div>
           <div className="postBottomRight">
