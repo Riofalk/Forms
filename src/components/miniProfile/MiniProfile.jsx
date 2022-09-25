@@ -1,7 +1,7 @@
 import React from 'react'
 import "./miniProfile.css"
 
-const MiniProfile = () => {
+const MiniProfile = (avatarUrl, profileName, profileId) => {
   return (
     <>
     <div className="miniProfileWrapper">
