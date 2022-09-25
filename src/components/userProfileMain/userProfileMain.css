@@ -79,3 +79,24 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media only screen and (max-width: 684px) {
+  .profileTopTextName {
+    font-size: 40px;
+  }
+  .twitterLogoProfile {
+    transform: scale(400%);
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .profileTopTextName {
+    font-size: 30px;
+  }
+  .profileTopTextId {
+    font-size: 15px;
+  }
+  .twitterLogoProfile {
+    transform: scale(300%);
+  }
+}
