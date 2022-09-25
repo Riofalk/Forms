@@ -1,0 +1,81 @@
+.userProfileWrapper {
+  height: calc(100%-60px);
+  width: 100%;
+  background: #dff4ff;
+}
+
+.userProfileTop {
+  box-shadow: 1px 2px 12px 3px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 2px 12px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 2px 12px 3px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(7, 43, 144, 1) 46%,
+    rgba(5, 99, 181, 1) 64%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.profileTopLeft {
+  width: 20%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+}
+
+.profileTopImageWrapper {
+  width: 200px;
+}
+.profileTopImg {
+  border-radius: 50%;
+  width: 99%;
+  max-width: 220px;
+  object-fit: contain;
+  box-shadow: 1px 2px 12px -1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 2px 12px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 2px 12px -1px rgba(0, 0, 0, 0.75);
+  margin: 10px 0;
+}
+.profileTopRight {
+  width: 70%;
+  height: 80%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 10%;
+}
+
+.profileTopTextName {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.profileTopTextId {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.twitterLogoProfile {
+  margin-left: 20%;
+  transform: scale(500%);
+}
+
+.profileFollowWrapper {
+  margin-top: 5%;
+}
+
+.userProfileRest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
