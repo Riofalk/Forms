@@ -4,6 +4,7 @@ import Profile from "./pages/profile/Profile.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import UserProfile from "./pages/userProfile/UserProfile.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="Register" element={<Register />} />
         <Route path="Login" element={<Login />} />
+        <Route path="UserProfile" element={<UserProfile />} />
       </Routes>
     </Router>
   );
