@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function ConfirmPasswordLabel(props) {
   return (
-    <label htmlFor="confirm_pwd">
+    <label className="logingInLabel" htmlFor="confirm_pwd">
       Confirm Password:
       <FontAwesomeIcon
         icon={faCheck}

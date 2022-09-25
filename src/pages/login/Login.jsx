@@ -44,11 +44,14 @@ const Login = () => {
       </div>
       <div className="register-right">
         <section className="loginContainer">
-          <h1>Log in</h1>
+          <h1 className="loginHeader">Log in</h1>
           {error && <div className="errmsg">Invalid username or password</div>}
-          <form>
-            <label htmlFor="username">Username:</label>
+          <form className="loginForm">
+            <label className="logingInLabel" htmlFor="username">
+              Username:
+            </label>
             <input
+              className="logingInInput"
               autoFocus
               type="text"
               id="username"
@@ -58,8 +61,11 @@ const Login = () => {
               value={user}
               required
             />
-            <label htmlFor="password">Password:</label>
+            <label className="logingInLabel" htmlFor="password">
+              Password:
+            </label>
             <input
+              className="logingInInput"
               type="password"
               id="password"
               onChange={(e) => setPwd(e.target.value)}
@@ -69,7 +75,7 @@ const Login = () => {
             <button
               onClick={() => setLoginSucces(HandleSubmit)}
               type="button"
-              className="buttonFailure"
+              className="logingInButton"
             >
               Log In
             </button>

@@ -3,7 +3,7 @@ import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function PasswordLabel(props) {
   return (
-    <label htmlFor="password">
+    <label className="logingInLabel" htmlFor="password">
       Password:
       <FontAwesomeIcon
         icon={faCheck}
