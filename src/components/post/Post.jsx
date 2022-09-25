@@ -2,7 +2,8 @@ import "./post.css";
 import placeholderImg from "../../img/placeholderProfileImg.png";
 import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
-function Post() {
+function Post({ Post }) {
+  console.log({ Post });
   return (
     <div className="post">
       <div className="postWrapper">
@@ -20,6 +21,7 @@ function Post() {
           <div className="postText">First post W00t!!!! ;))</div>
           <img src={placeholderPostImg} className="postImg" />
         </div>
+        <hr className="postHr" />
         <div className="postBottom">
           <div className="postBottomLeft">
             <ThumbUp tabindex="1" className="likeIcon" />

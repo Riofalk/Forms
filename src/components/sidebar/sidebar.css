@@ -3,7 +3,7 @@
   height: calc(100vh - 60px);
   background: #aee2ff;
   border-right: 2px solid #005ebb;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   position: -webkit-sticky;
   position: sticky;

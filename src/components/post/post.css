@@ -9,6 +9,7 @@
 
 .postWrapper {
   padding: 10px;
+  background: #b9e7ff;
 }
 
 .postTop {
@@ -43,6 +44,14 @@
   margin: 20px 30px;
   display: flex;
   flex-direction: column;
+  border: 3px solid #5bc6ff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.postHr {
+  margin: 20px;
+  border-top: 1px solid #696969;
 }
 
 .postImg {
