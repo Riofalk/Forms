@@ -1,14 +1,16 @@
 import "./App.css";
-import Register from "./pages/register/Register.js";
-import Login from "./pages/login/Login.js";
-import Main from "./pages/main/Main.js";
-import Forms from "./pages/forms/Forms.js";
+import Profile from "./pages/profile/Profile.jsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
+  <Router>
+    <Routes>
+      <Route path="profile" element={<Profile/>} />
+    </Routes>
+  </Router> 
+  )
 
-  );
 }
 
 export default App;

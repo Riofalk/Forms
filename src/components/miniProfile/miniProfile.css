@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    font-family: "Helvetica";
+}
+
+.miniProfileWrapper {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, black 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 150px;
+    width: 350px;
+    background-color: white;
+}
+
+.profileBackground {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(7,43,144,1) 46%, rgba(5,99,181,1) 64%, rgba(0,212,255,1) 100%);
+    width: 100%;
+    height: 60%;
+    border-radius: 10px 10px 0px 0px;  
+}
+
+.profileImg {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    border-radius: 50%;
+    translate: 10% -50%;
+}
+
+.profilInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profileName {
+    font-size: 15px;
+}
+
+.profileId {
+    font-size: 10px;
+    color: grey;
+}
+
+.miniProfileInfWrapper {
+    width: 220px;
+    display: flex;
+    padding: 5px 5px 0 0;
+    translate: 55%;
+    justify-content: space-between;
+}
+
+.followButton {
+    color: #3399FF;
+    font-size: 12pt;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #3399FF;
+    border-radius: 3px;
+    width: 85px;
+    height: 30px;
+    cursor: pointer;	
+}
