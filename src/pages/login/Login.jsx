@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import "./login.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { Twitter } from "@mui/icons-material";
 const Login = () => {
   const userRef = useRef();
 
@@ -34,47 +34,54 @@ const Login = () => {
 
   return (
     <div className="wrapper">
-      <section className="loginContainer">
-        <h1>Log in</h1>
-        {error && <div className="errmsg">Invalid username or password</div>}
-        <form>
-          <label htmlFor="username">Username:</label>
-          <input
-            autoFocus
-            type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
-            value={user}
-            required
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPwd(e.target.value)}
-            value={pwd}
-            required
-          />
-          <button
-            onClick={() => setLoginSucces(HandleSubmit)}
-            type="button"
-            className="buttonFailure"
-          >
-            Log In
-          </button>
-        </form>
-        <p>
-          <br />
-          <span className="line">
-            <Link to="/register">Register</Link>
-          </span>
-          <span className="lineHome">
-            <Link to="/">Home</Link>
-          </span>
-        </p>
-      </section>
+      <div className="register-left">
+        <div className="chirperRegister">
+          <Twitter className="logoIcon" />
+        </div>
+        <div className="register-left-text">
+          Find out <br /> what's happening first...
+        </div>
+      </div>
+      <div className="register-right">
+        <section className="loginContainer">
+          <h1>Log in</h1>
+          {error && <div className="errmsg">Invalid username or password</div>}
+          <form>
+            <label htmlFor="username">Username:</label>
+            <input
+              autoFocus
+              type="text"
+              id="username"
+              ref={userRef}
+              autoComplete="off"
+              onChange={(e) => setUser(e.target.value)}
+              value={user}
+              required
+            />
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPwd(e.target.value)}
+              value={pwd}
+              required
+            />
+            <button
+              onClick={() => setLoginSucces(HandleSubmit)}
+              type="button"
+              className="buttonFailure"
+            >
+              Log In
+            </button>
+          </form>
+          <p>
+            <br />
+            <span className="line">
+              <Link to="/register">Register</Link>
+            </span>
+          </p>
+        </section>
+      </div>
     </div>
   );
 };
