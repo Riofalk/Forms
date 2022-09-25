@@ -42,8 +42,8 @@ function Post({ post }) {
         <hr className="postHr" />
         <div className="postBottom">
           <div className="postBottomLeft">
-            <ThumbUp tabindex="1" className="likeIcon" onClick={likeHandler} />
-            <Favorite tabindex="2" className="likeIcon" onClick={likeHandler} />
+            <ThumbUp tabIndex="1" className="likeIcon" onClick={likeHandler} />
+            <Favorite tabIndex="2" className="likeIcon" onClick={likeHandler} />
             <span className="postlikeCounter">
               {like} people have liked this
             </span>
