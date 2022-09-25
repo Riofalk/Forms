@@ -1,5 +1,6 @@
 import "./sidebar.css";
 import { Feed } from "@mui/icons-material";
+import MiniProfile from "../miniProfile/MiniProfile";
 
 function Sidebar() {
   return (
@@ -7,6 +8,9 @@ function Sidebar() {
       <div className="sidebarWrapper">
         <ul className="sidebarList">
           <li className="sidebarListItem">
+            <MiniProfile />
+            <MiniProfile />
+            <MiniProfile />
             <Feed className="sidebarIcon" />
             <span className="sidebarListItemText">Feed</span>
           </li>
