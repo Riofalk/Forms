@@ -8,11 +8,17 @@ html {
   font-family: "Open Sans", sans-serif;
   font-size: 22px;
   color: black;
-  background: #dddddd;
 }
 
 body {
   min-height: 100vh;
+}
+
+.chirperRegister {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  transform: scale(300%);
 }
 
 .wrapper {
@@ -21,6 +27,33 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.register-left {
+  background: linear-gradient(
+    45deg,
+    #66757f,
+    #00acee,
+    #36d8ff,
+    #f5f8fa,
+    #ffffff
+  );
+  border-right: 3px solid #004d71;
+  height: 100vh;
+  font-size: 80px;
+  font-weight: 800;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-right {
+  height: 100%;
+  background: #1da1f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
 }
 
 .App {
@@ -37,13 +70,14 @@ body {
   max-width: 420px;
   min-height: 400px;
   border-radius: 15px;
-  border: 1px solid gray;
+  border: 3px solid #00376f;
   background: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-  background: #f5f5f5;
+  background: #77c7f7;
+  font-weight: 500;
 }
 
 form {
@@ -63,6 +97,8 @@ input[type="text"],
 input[type="password"],
 button,
 textarea {
+  background: #e6f1ff;
+
   font-family: "Nunito", sans-serif;
   font-size: 22px;
   padding: 0.25rem;

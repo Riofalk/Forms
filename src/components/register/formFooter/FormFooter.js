@@ -8,9 +8,6 @@ function formFooter() {
       <span className="line">
         <Link to="/login">Log in</Link>
       </span>
-      <span className="lineHome">
-        <Link to="/">Home</Link>
-      </span>
     </p>
   );
 }
