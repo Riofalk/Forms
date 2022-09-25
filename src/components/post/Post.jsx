@@ -2,15 +2,20 @@ import "./post.css";
 import placeholderImg from "../../img/placeholderProfileImg.png";
 import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
+import { Users } from "../../dummyData.js";
 function Post({ post }) {
-  console.log({ post });
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img src={placeholderImg} className="postProfileImg" />
-            <span className="postUsername">Stick Stickmanson</span>
+            <img
+              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
+              className="postProfileImg"
+            />
+            <span className="postUsername">
+              {Users.filter((u) => u.id === post.userId)[0].username}
+            </span>
             <span className="postDate">{post.date}</span>
           </div>
           <div className="postTopRight">
