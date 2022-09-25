@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./miniProfile.css"
 
 const MiniProfile = (avatarUrl, profileName, profileId) => {
+  const [follow, setFollow] = useState(false)
+  const followed = () => setFollow(!follow)
+
   return (
     <>
     <div className="miniProfileWrapper">
@@ -18,7 +21,9 @@ const MiniProfile = (avatarUrl, profileName, profileId) => {
           </div>
 
           <div className="followWrapper">
-            <button className="followButton">+ Follow</button>
+            <button onClick={followed} className={`followButton ${follow ? "followed" : ""}`}>
+              {follow ? "Following" : "+ Follow"}
+            </button>
           </div>
         </div> 
 
@@ -26,6 +31,12 @@ const MiniProfile = (avatarUrl, profileName, profileId) => {
     
     </>
   )
+
+  
+  
+
 }
+
+
 
 export default MiniProfile
