@@ -3,7 +3,16 @@ import placeholderImg from "../../img/placeholderProfileImg.png";
 import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
 import { Users } from "../../dummyData.js";
+import { useState } from "react";
 function Post({ post }) {
+  const [like, setLike] = useState(post.like);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const likeHandler = () => {
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
+  };
+
   return (
     <div className="post">
       <div className="postWrapper">
@@ -33,10 +42,10 @@ function Post({ post }) {
         <hr className="postHr" />
         <div className="postBottom">
           <div className="postBottomLeft">
-            <ThumbUp tabindex="1" className="likeIcon" />
-            <Favorite tabindex="2" className="likeIcon" />
+            <ThumbUp tabindex="1" className="likeIcon" onClick={likeHandler} />
+            <Favorite tabindex="2" className="likeIcon" onClick={likeHandler} />
             <span className="postlikeCounter">
-              {post.like} people have liked this
+              {like} people have liked this
             </span>
           </div>
           <div className="postBottomRight">
