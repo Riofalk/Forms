@@ -11,7 +11,6 @@ function Sidebar() {
           <MiniProfile />
           <MiniProfile />
         </div>
-
         <ul className="sidebarList">
           <li className="sidebarListItem">
             <Feed className="sidebarIcon" />
