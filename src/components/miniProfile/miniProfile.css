@@ -1,18 +1,12 @@
-body {
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    font-family: "Helvetica";
-}
-
 .miniProfileWrapper {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, black 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     height: 150px;
     width: 350px;
     background-color: white;
+    margin: 50px 0 50px 0;
 }
 
 .profileBackground {
