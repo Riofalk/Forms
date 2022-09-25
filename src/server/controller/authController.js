@@ -28,15 +28,15 @@ export const loginUser = async (req, res) => {
         const { password, userId } = req.body 
         const user = await userModel.findOne( {userId: userId})
 
-        if (!user)  return res.status(405).send("User or password is not correct")
+        if (!user)  return res.status(404).send("User or password is not correct")
 
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
 
         if (!isPasswordCorrect)  return res.status(404).send("User or password is not correct")
         
-        const { _id } = user;
+        const { _id, profileImg } = user;
 
-        const token = jwt.sign({id: _id}, process.env.KEY_GEN, {expiresIn: "2h"});
+        const token = jwt.sign({id: _id, profileImg: profileImg, userId: userId}, process.env.KEY_GEN, {expiresIn: "2h"});
         return res.
             cookie("session_token", token, {
             httpOnly: true,

@@ -1,4 +1,7 @@
 import jwt from 'jsonwebtoken';
+import dotenv from "dotenv";
+
+dotenv.config()
 
 export const verifySessionToken = (req, res, next) =>{
 
@@ -6,10 +9,10 @@ export const verifySessionToken = (req, res, next) =>{
 
     if(!token) return res.status(401).send("not authorized!")
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) =>{
+    jwt.verify(token, process.env.KEY_GEN, (err, decodedToken) =>{
         if (err) return res.status(404).send("not valid!")
         req.user = decodedToken;
-        verifyUser(req,res, next);
+        req.params.id !==  undefined ? verifyUser(req,res, next) : next();
     })
 }
 

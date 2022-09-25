@@ -86,7 +86,7 @@ async function HandleSubmit(user, pwd) {
       .post(
         "http://localhost:4000/api/login",
         {
-          userName: user,
+          userId: user,
           password: pwd,
         },
         { withCredentials: true }
