@@ -6,11 +6,14 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
+        <div className="followSuggestion">
+          <MiniProfile />
+          <MiniProfile />
+          <MiniProfile />
+        </div>
+
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <MiniProfile />
-            <MiniProfile />
-            <MiniProfile />
             <Feed className="sidebarIcon" />
             <span className="sidebarListItemText">Feed</span>
           </li>
