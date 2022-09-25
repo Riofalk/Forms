@@ -14,7 +14,6 @@ export const createUser = async (req, res) => {
             ...req.body,
             password: hash
         })
-        
         await newUser.save();
         res.status(201).send('User is created')
     }
@@ -26,8 +25,8 @@ export const createUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
     try {
-        const { password, email } = req.body 
-        const user = await userModel.findOne( {email: email})
+        const { password, userId } = req.body 
+        const user = await userModel.findOne( {userId: userId})
 
         if (!user)  return res.status(405).send("User or password is not correct")
 

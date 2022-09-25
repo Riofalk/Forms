@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect} from "react";
 import "./register.css";
 import axios from "axios";
 import Usernameuid from "../../components/register/username/Usernameuid.js";
@@ -10,6 +10,7 @@ import UsernameLabel from "../../components/register/username/UsernameLabel.js";
 import PasswordLabel from "../../components/register/password/PasswordLabel.js";
 import ConfirmPasswordLabel from "../../components/register/confirmPassword/ConfirmPasswordLabel.js";
 import ErrMsg from "../../components/register/errMsg/ErrMsg.js";
+import {useNavigate} from "react-router-dom";
 
 import { Twitter } from "@mui/icons-material";
 
@@ -17,6 +18,7 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
+  const navigate = useNavigate(); 
   const userRef = useRef();
   const errRef = useRef();
 
@@ -53,23 +55,25 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
+      
       await axios
         .post(
           "http://localhost:4000/api/register",
           {
-            userName: user.toLowerCase(),
+            userId: user.toLowerCase(),
             password: pwd,
           },
           { withCredentials: true }
-        )
-        .then((res) => {
-          console.log(res.status);
-        });
+        ).then((res) => {
+          navigate("/home")
+        })
       setRegisterSuccess(true);
     } catch (error) {
-      console.error(error);
+      setErrMsg("Choose different username")
     }
+    
   };
 
   return (
