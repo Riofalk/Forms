@@ -1,10 +1,9 @@
 import { getAllUserForms } from "../controller/userController.js";
-import { tokenId } from "../utils/tokens.js";
 import express  from "express";
+import verifySessionToken from "../authCheck/authCheck.js"
 
 const router = express.Router();
 
-router.get("/getAllUserForms/:id", getAllUserForms)
-router.get("/getTokenId/", tokenId)
+router.get("/getAllUserForms/:id", verifySessionToken, getAllUserForms)
 
 export default router;
