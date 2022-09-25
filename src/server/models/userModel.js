@@ -2,13 +2,14 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema( {
     userName: {
-        type: String
+        type: String,
     },
     password: {
         type: String,
         required: true,
     },
-    userId: {
+    userId: { 
+        type: String,
         required: true,
         unique: true,
     },
@@ -23,7 +24,7 @@ const userSchema = new mongoose.Schema( {
     },
     feed: {
         type:[]
-    },
-    }, {timestamps: true});
+    }
+    }, {timestamps: true})
 
  export default mongoose.model('user', userSchema)
