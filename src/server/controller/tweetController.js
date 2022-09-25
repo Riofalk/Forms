@@ -1,0 +1,1 @@
+import tweetModel from "../models/tweetModel.js";

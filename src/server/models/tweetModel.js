@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const responsSchema = new mongoose.Schema( {
+const tweetSchema = new mongoose.Schema( {
     body: {
         type: String,
         required: true,
@@ -17,4 +17,4 @@ const responsSchema = new mongoose.Schema( {
     },
     }, {timestamps: true});
 
-export default mongoose.model('respons', responsSchema)
+export default mongoose.model('tweet', tweetSchema)
