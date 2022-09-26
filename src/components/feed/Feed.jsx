@@ -4,28 +4,27 @@ import "./feed.css";
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 
-function Feed(profileImg) {
-
+function Feed() {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-    const response = async () => {
+    const fetchTweets = async () => {
       try {
-        const {data} = await axios.get("http://localhost:4000/api/getUserInfo",{withCredentials: true})
+        const {data} = await axios.get("http://localhost:4000/api/getAllTweets",{withCredentials: true})
         setTweets(data);
       } catch (error) {
         console.log(error)
       }
     }
-    response()
+    fetchTweets()
+    
   }, []);
-
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share profileImg={profileImg} />
-        {tweets?.map((p) => (
-          <Post key={p.id} post={p} />
+        <Share/>
+        {tweets.map((props, index) => (
+          <Post key={index} props={props} />
         ))}
       </div>
     </div>

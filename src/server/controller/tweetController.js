@@ -1,3 +1,4 @@
+import { Recommend } from "@mui/icons-material";
 import tweetModel from "../models/tweetModel.js";
 import userModel from "../models/userModel.js"
 
@@ -28,6 +29,17 @@ export const getUserTweets = async (req, res) => {
         return res.status(201).json(tweetArray)
     }
     catch (error) {
+        return res.status(405).send(error);
+    }   
+}
+
+export const getAllTweets = async (req, res) => {
+    try {
+        const tweetArr = await tweetModel.find({})
+        return res.status(201).json(tweetArr)
+    }
+    catch (error) {
+        console.log(error)
         return res.status(405).send(error);
     }   
 }
