@@ -1,13 +1,12 @@
-import { useRef, useState} from "react";
+import { useRef, useState } from "react";
 import "./login.css";
 import axios from "axios";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Twitter } from "@mui/icons-material";
-
 
 const Login = () => {
   return (
-    <div className="wrapper">
+    <div className="loginMainWrapper">
       <div className="register-left">
         <div className="chirperRegister">
           <Twitter className="logoIcon" />
@@ -17,9 +16,12 @@ const Login = () => {
         </div>
       </div>
       <div className="register-right">
+        <div className="chirperRegisterSmall">
+          <Twitter className="logoIcon" />
+        </div>
         <section className="loginContainer">
           <h1 className="loginHeader">Log in</h1>
-          <LoginForm/>
+          <LoginForm />
           <p>
             <br />
             <span className="line">
@@ -32,9 +34,8 @@ const Login = () => {
   );
 };
 
-
-function LoginForm()  {
-  const navigate = useNavigate(); 
+function LoginForm() {
+  const navigate = useNavigate();
   const userRef = useRef();
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
@@ -42,41 +43,47 @@ function LoginForm()  {
 
   return (
     <>
-    {error && <div className="errmsg">Invalid username or password</div>}
-    <form className="loginForm">
-      <label className="logingInLabel" htmlFor="username">Username:</label>
-      <input
-        className="logingInInput"
-        autoFocus
-        type="text"
-        id="username"
-        ref={userRef}
-        autoComplete="off"
-        onChange={(e) => setUser(e.target.value)}
-        value={user}
-        required
-      />
-      <label className="logingInLabel" htmlFor="password">Password:</label>
-      <input
-        className="logingInInput"
-        type="password"
-        id="password"
-        onChange={(e) => setPwd(e.target.value)}
-        value={pwd}
-        required
-      />
-      <button
-        onClick={() => {
-          HandleSubmit(user, pwd).then((res) => {
-            res ? navigate("/home") : setError(!res) 
-          })
-        }}
-        type="button"
-        className="logingInButton"
-      >Log In</button>
-    </form>
+      {error && <div className="errmsg">Invalid username or password</div>}
+      <form className="loginForm">
+        <label className="logingInLabel" htmlFor="username">
+          Username:
+        </label>
+        <input
+          className="logingInInput"
+          autoFocus
+          type="text"
+          id="username"
+          ref={userRef}
+          autoComplete="off"
+          onChange={(e) => setUser(e.target.value)}
+          value={user}
+          required
+        />
+        <label className="logingInLabel" htmlFor="password">
+          Password:
+        </label>
+        <input
+          className="logingInInput"
+          type="password"
+          id="password"
+          onChange={(e) => setPwd(e.target.value)}
+          value={pwd}
+          required
+        />
+        <button
+          onClick={() => {
+            HandleSubmit(user, pwd).then((res) => {
+              res ? navigate("/home") : setError(!res);
+            });
+          }}
+          type="button"
+          className="logingInButton"
+        >
+          Log In
+        </button>
+      </form>
     </>
-  )
+  );
 }
 
 async function HandleSubmit(user, pwd) {
@@ -92,18 +99,12 @@ async function HandleSubmit(user, pwd) {
         { withCredentials: true }
       )
       .then((res) => {
-        loggedIn = (res.status === 201)
+        loggedIn = res.status === 201;
       });
-    } catch (error) {
+  } catch (error) {
     console.error(error);
   }
   return loggedIn;
 }
-
-
-
-
-
-
 
 export default Login;

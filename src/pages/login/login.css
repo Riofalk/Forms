@@ -1,4 +1,4 @@
-.wrapper {
+.loginMainWrapper {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -26,8 +26,8 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-  background: #77c7f7;
-  font-weight: 500;
+  background: rgba(66, 113, 143, 0.29);
+  font-weight: 600;
   box-shadow: 1px 2px 12px 5px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 1px 2px 12px 5px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 2px 12px 5px rgba(0, 0, 0, 0.75);
@@ -48,14 +48,13 @@ a:visited {
 
 .logingInInput[type="text"],
 .logingInInput[type="password"],
-.logingInButton,
 .logingInInput {
   background: #e6f1ff;
   font-size: 22px;
   padding: 0.25rem;
+  padding-left: 20px;
   border-radius: 16px;
 }
-
 .logingInInput:focus {
   outline: 3px solid #0676ff;
 }
@@ -107,7 +106,7 @@ a:visited {
   background-color: lightpink;
   color: firebrick;
   font-weight: bold;
-  padding: 0.5rem;
+  padding-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
 

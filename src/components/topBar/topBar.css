@@ -73,3 +73,18 @@
   width: 50px;
   border-radius: 50%;
 }
+
+.logOutHeader {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 300;
+  background: #dbf0fd;
+  transition: background-color 0.5s;
+}
+
+.logOutHeader:hover {
+  background: #b3e0fb;
+}

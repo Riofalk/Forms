@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect} from "react";
+import { useRef, useState, useEffect } from "react";
 import "./register.css";
 import axios from "axios";
 import Usernameuid from "../../components/register/username/Usernameuid.js";
@@ -10,7 +10,7 @@ import UsernameLabel from "../../components/register/username/UsernameLabel.js";
 import PasswordLabel from "../../components/register/password/PasswordLabel.js";
 import ConfirmPasswordLabel from "../../components/register/confirmPassword/ConfirmPasswordLabel.js";
 import ErrMsg from "../../components/register/errMsg/ErrMsg.js";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Twitter } from "@mui/icons-material";
 
@@ -18,7 +18,7 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const userRef = useRef();
   const errRef = useRef();
 
@@ -55,9 +55,8 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      
       await axios
         .post(
           "http://localhost:4000/api/register",
@@ -66,18 +65,18 @@ const Register = () => {
             password: pwd,
           },
           { withCredentials: true }
-        ).then((res) => {
-          navigate("/login")
-        })
+        )
+        .then((res) => {
+          navigate("/login");
+        });
       setRegisterSuccess(true);
     } catch (error) {
-      setErrMsg("Choose different username")
+      setErrMsg("Choose different username");
     }
-    
   };
 
   return (
-    <div className="wrapper">
+    <div className="loginMainWrapper">
       <div className="register-left">
         <div className="chirperRegister">
           <Twitter className="logoIcon" />
@@ -87,8 +86,11 @@ const Register = () => {
         </div>
       </div>
       <div className="register-right">
+        <div className="chirperRegisterSmall">
+          <Twitter className="logoIcon" />
+        </div>
         <section className="registrationContainer">
-          <ErrMsg errMsg={errMsg} />
+          <ErrMsg errMsg={errMsg} className="errmsg" />
           <h1 className="loginHeader">Register</h1>
           <form className="loginForm" onSubmit={handleSubmit}>
             <UsernameLabel validName={validName} user={user} />
