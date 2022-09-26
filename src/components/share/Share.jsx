@@ -1,8 +1,10 @@
 import "./share.css";
 import { InsertPhoto, Label, Room, EmojiEmotions } from "@mui/icons-material";
+import { useRef, useState, useEffect} from "react";
 
 
 function Share(props) {
+  const [user, setUser] = useState("");
   return (
     <div className="share">
       <div className="shareWrapper">

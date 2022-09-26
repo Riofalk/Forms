@@ -1,14 +1,23 @@
 import "./topBar.css";
 import { Search, Twitter } from "@mui/icons-material";
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
-function TopBar(props) {
-  const {profilePic} = props
+function TopBar(passedValues) {
+  const {userId, profileImg} = passedValues
+  const navigate = useNavigate();
+  const navigateToProfile = () => {
+    navigate(`/UserProfile/${userId}`);
+  };
+
+  const navigateToMain = () => {
+    navigate('/Home');
+  };
   
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
         <Twitter className="logoIcon" />
-        <span className="logo">Twitter</span>
+        <span onClick={ () => navigateToMain()} className="logo">Twitter</span>
       </div>
       {/* <div className="topbarCenter"></div> */}
       <div className="topbarRight">
@@ -17,7 +26,7 @@ function TopBar(props) {
           <input placeholder="Search..." className="searchInput" />
         </div>
         <div className="profileImgContainer">
-          <img src={profilePic} alt="" className="profileLinkImg" />
+          <img onClick={ () => navigateToProfile()} src={"profilePic"} alt="" className="profileLinkImg" />
         </div>
       </div>
     </div>

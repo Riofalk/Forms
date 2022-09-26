@@ -21,11 +21,12 @@ function Home() {
     }
     response();
   }, []);
-
+  console.log(data)
+  const {userId, profileImg} = data;
 
   return (
     <>
-      <TopBar profilePic={data.profileImg}/>
+      <TopBar userId={userId} profileImg={profileImg}/>
       <div className="homeContainer">
         <Sidebar  />
         <Feed profilePic={data.profileImg}/>
