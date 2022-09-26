@@ -1,13 +1,10 @@
 import "./post.css";
-import placeholderImg from "../../img/placeholderProfileImg.png";
-import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
 import { useState } from "react";
 
-function Post({post}) {
-  
-  const {body, likedBy, profileImg, userId} = post
-  const [like, setLike] = useState(likedBy.length);
+function Post({props}) {
+  const {body, profileImg, userId} = props
+  const [like, setLike] = useState();
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {

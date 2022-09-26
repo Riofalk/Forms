@@ -11,6 +11,7 @@ function Home() {
 
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     const response = async () => {
       try {
@@ -30,7 +31,7 @@ function Home() {
       <TopBar userId={userId} profileImg={profileImg} userName={userName}/>
       <div className="homeContainer">
         <Sidebar  />
-        <Feed profilePic={data.profileImg}/>
+        <Feed/>
       </div>
     </>
   );

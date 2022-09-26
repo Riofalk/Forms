@@ -3,17 +3,12 @@ import { InsertPhoto, Label, Room, EmojiEmotions } from "@mui/icons-material";
 import { useRef, useState, useEffect} from "react";
 
 
-function Share(props) {
+function Share() {
   const [user, setUser] = useState("");
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img
-            className="shareProfileImg"
-            src={props.profileImg.profilePic}
-            alt="Img of user"
-          />
           <input placeholder="What's happening?" className="shareInput" />
         </div>
         <hr className="shareHr" />

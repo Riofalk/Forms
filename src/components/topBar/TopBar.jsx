@@ -2,8 +2,8 @@ import "./topBar.css";
 import { Search, Twitter } from "@mui/icons-material";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
-function TopBar(passedValues) {
-  const { userId, profileImg } = passedValues;
+function TopBar(data) {
+  const {userId, profileImg} = data;
   const navigate = useNavigate();
   const navigateToProfile = () => {
     navigate(`/UserProfile/${userId}`);
