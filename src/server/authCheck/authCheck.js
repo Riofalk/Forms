@@ -18,6 +18,6 @@ export const verifySessionToken = (req, res, next) =>{
 }
 
 const verifyUser = (req, res ,next) => {
-    if (req.user.id === req.params.id) next();
-    res.status(406).send('you are not authorized')
+    if (req.user.id === req.params.id) return next();
+    return res.status(406).send('you are not authorized')
 }

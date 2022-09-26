@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import Post from "../post/Post.jsx";
 import { Twitter } from "@mui/icons-material";
 import "./userProfileMain.css";
+import axios from "axios";
 import { Posts } from "../../dummyData.js";
 
 const UserProfileMain = (passedValues) => {
@@ -10,6 +11,20 @@ const UserProfileMain = (passedValues) => {
   const {userId, profileImg, userName} = passedValues;
   const [follow, setFollow] = useState(false);
   const followed = () => setFollow(!follow);
+  const [tweetArr, setTweetArr] = useState([]);
+
+  useEffect(() => {
+    const getAllTweets = async () => {
+      try {
+        const {data} = await axios.get(`http://localhost:4000/api/getAllUserTweets/${id}`,{withCredentials: true})
+        setTweetArr(data);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getAllTweets();
+  }, []);
+
   
 
   return (
@@ -43,12 +58,14 @@ const UserProfileMain = (passedValues) => {
         </div>
       </div>
       <div className="userProfileRest">
-        {Posts.map((p) => (
-          <Post key={p.id} post={p} />
+        {tweetArr.map((element, index) => (
+          <Post key={index} post={element} />
         ))}
       </div>
     </div>
   );
 };
+
+
 
 export default UserProfileMain;

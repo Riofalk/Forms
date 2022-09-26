@@ -2,10 +2,12 @@ import "./post.css";
 import placeholderImg from "../../img/placeholderProfileImg.png";
 import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
-import { Users } from "../../dummyData.js";
 import { useState } from "react";
-function Post({ post }) {
-  const [like, setLike] = useState(post.like);
+
+function Post({post}) {
+  
+  const {body, likedBy, profileImg, userId} = post
+  const [like, setLike] = useState(likedBy.length);
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {
@@ -19,11 +21,11 @@ function Post({ post }) {
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
+              src={profileImg}
               className="postProfileImg"
             />
             <span className="postUsername">
-              Hello
+              {userId}
             </span>
           </div>
           <div className="postTopRight">
@@ -31,7 +33,7 @@ function Post({ post }) {
           </div>
         </div>
         <div className="postCenter">
-          <div className="postText">{post?.desc}</div>
+          <div className="postText">{body}</div>
         </div>
         <hr className="postHr" />
         <div className="postBottom">
