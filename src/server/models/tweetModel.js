@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const tweetSchema = new mongoose.Schema( {
+    profileImg: {
+        type: String,
+    },
     body: {
         type: String,
         required: true,
@@ -10,9 +13,6 @@ const tweetSchema = new mongoose.Schema( {
         required: true,
     },
     likedBy: {
-        type: []
-    },
-    repostedBy: {
         type: []
     },
     }, {timestamps: true});

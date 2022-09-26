@@ -6,6 +6,7 @@ import userRoute from "./routes/userRoute.js"
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import cors from "cors"
+import tweetRoute from "./routes/tweetRoute.js"
 
 const app = express();
 const port = 4000;
@@ -25,6 +26,7 @@ dotenv.config();
 
 app.use('/api', authRoute);
 app.use('/api', userRoute);
+app.use('/api', tweetRoute);
 
 const connectionToDB = async () => {
     try {

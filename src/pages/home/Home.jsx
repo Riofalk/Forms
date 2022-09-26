@@ -1,5 +1,6 @@
 
 import Sidebar from "../../components/sidebar/Sidebar.jsx";
+import {useNavigate} from 'react-router-dom';
 import TopBar from "../../components/topBar/TopBar.jsx";
 import Feed from "../../components/feed/Feed.jsx";
 import "./home.css";
@@ -19,9 +20,9 @@ function Home() {
         console.log(error)
       }
     }
-    response();
+    response()
   }, []);
-
+ 
   const {userId, profileImg, userName} = data;
 
   return (

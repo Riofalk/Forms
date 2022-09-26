@@ -4,7 +4,9 @@ import placeholderPostImg from "../../img/placeholderPostImg.png";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
 import { Users } from "../../dummyData.js";
 import { useState } from "react";
-function Post({ post }) {
+
+function Post(post) {
+  console.log(post)
   const [like, setLike] = useState(post.like);
   const [isLiked, setIsLiked] = useState(false);
 
@@ -19,7 +21,7 @@ function Post({ post }) {
         <div className="postTop">
           <div className="postTopLeft">
             <img
-              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
+              src={""}
               className="postProfileImg"
             />
             <span className="postUsername">
@@ -31,7 +33,7 @@ function Post({ post }) {
           </div>
         </div>
         <div className="postCenter">
-          <div className="postText">{post?.desc}</div>
+          <div className="postText"></div>
         </div>
         <hr className="postHr" />
         <div className="postBottom">

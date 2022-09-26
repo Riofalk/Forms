@@ -6,13 +6,14 @@ import UserProfileMain from "../../components/userProfileMain/UserProfileMain.js
 
 function UserProfile() {
 
-  const [data, setData] = useState([]);
+  const [userData, setUserData] = useState([]);
+
 
   useEffect(() => {
     const response = async () => {
       try {
         const {data} = await axios.get("http://localhost:4000/api/getUserInfo",{withCredentials: true})
-        setData(data);
+        setUserData(data);
       } catch (error) {
         console.log(error)
       }
@@ -20,7 +21,7 @@ function UserProfile() {
     response();
   }, []);
 
-  const {userId, profileImg, userName} = data;
+  const {userId, profileImg, userName} = userData;
   return (
     <>
       <TopBar profileImg={profileImg}/>
