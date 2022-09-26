@@ -3,23 +3,24 @@ import { InsertPhoto, Label, Room, EmojiEmotions } from "@mui/icons-material";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 
-function Share() {
-  const [user, setUser] = useState("");
+function Share({_id}) {
   const [tweetText, setTweetText] = useState("");
 
   const tweetSubmit = async (e) => {
     try {
       await axios.post(
-        "http://localhost:4000/tweet/:id",
+        `http://localhost:4000/api/tweet/${_id}`,
         {
-          tweetBy: user.toLowerCase(),
+          tweetBy: _id,
           body: tweetText,
         },
         { withCredentials: true }
       );
     } catch (error) {
+      console.log(error)
       console.log("Something went wrong");
     }
+    window.location.reload(true);
   };
 
   return (

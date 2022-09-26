@@ -36,7 +36,18 @@ export const getUserTweets = async (req, res) => {
 export const getAllTweets = async (req, res) => {
     try {
         const tweetArr = await tweetModel.find({})
-        return res.status(201).json(tweetArr)
+        return res.status(201).json(tweetArr.reverse())
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(405).send(error);
+    }   
+}
+
+export const likePressed = async (req, res) => {
+    try {
+        const tweet = await tweetModel.find({_id : req.body._id})
+        return res.status(200).send(tweet.likedBy.includes(req.body.userId) ) 
     }
     catch (error) {
         console.log(error)

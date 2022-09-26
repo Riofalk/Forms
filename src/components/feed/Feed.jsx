@@ -4,7 +4,7 @@ import "./feed.css";
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 
-function Feed() {
+function Feed({_id}) {
   const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Feed() {
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share/>
+        <Share _id={_id}/>
         {tweets.map((props, index) => (
           <Post key={index} props={props} />
         ))}

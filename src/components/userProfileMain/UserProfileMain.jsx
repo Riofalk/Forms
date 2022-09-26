@@ -4,11 +4,10 @@ import Post from "../post/Post.jsx";
 import { Twitter } from "@mui/icons-material";
 import "./userProfileMain.css";
 import axios from "axios";
-import { Posts } from "../../dummyData.js";
 
 const UserProfileMain = (passedValues) => {
   const { id } = useParams()
-  const {userId, profileImg, userName} = passedValues;
+  const {userId,  userName} = passedValues;
   const [follow, setFollow] = useState(false);
   const followed = () => setFollow(!follow);
   const [tweetArr, setTweetArr] = useState([]);
@@ -58,8 +57,8 @@ const UserProfileMain = (passedValues) => {
         </div>
       </div>
       <div className="userProfileRest">
-        {tweetArr.map((element, index) => (
-          <Post key={index} post={element} />
+        {tweetArr.map((props, index) => (
+          <Post key={index} props={props} />
         ))}
       </div>
     </div>

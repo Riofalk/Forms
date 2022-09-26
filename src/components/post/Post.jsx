@@ -1,10 +1,12 @@
 import "./post.css";
 import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 
 function Post({props}) {
-  const {body, profileImg, userId} = props
-  const [like, setLike] = useState();
+  const {body, profileImg, userId, likedBy} = props
+  const [like, setLike] = useState(likedBy.length);
   const [isLiked, setIsLiked] = useState(false);
 
   const likeHandler = () => {

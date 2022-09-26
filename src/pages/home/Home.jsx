@@ -24,14 +24,14 @@ function Home() {
     response()
   }, []);
  
-  const {userId, profileImg, userName} = data;
+  const {userId, profileImg, userName, _id} = data;
 
   return (
     <>
       <TopBar userId={userId} profileImg={profileImg} userName={userName}/>
       <div className="homeContainer">
         <Sidebar  />
-        <Feed/>
+        <Feed _id={_id}/>
       </div>
     </>
   );
