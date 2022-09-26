@@ -4,15 +4,16 @@ import userModel from "../models/userModel.js"
 
 export const postTweet = async (req, res) => {
     try {
-        const newTweet = new tweetModel({...req.body})
         if (req.body.tweetBy != req.params.id) return res.status(404).send("Wrong ID")
+        const newTweet = new tweetModel({...req.body})
+        const updatedUser = await userModel.findOneAndUpdate({_id: req.body.tweetBy},  {"$push": { tweets: newTweet._id } }, {returnOriginal: false})
         await newTweet.save()
-        const updateUserTweets = await userModel.findOneAndUpdate({_id: req.body.tweetBy},  {"$push": { tweets: newTweet._id } }, {returnOriginal: false})
-        await updateUserTweets.save();
+        await updatedUser.save();
         return res.status(201).send('Tweeted!')  
     }
     catch (error) {
-        return res.status(405).send("Fuck");
+        console.log(error)
+        return res.status(405).send(error);
     }   
 }
 
