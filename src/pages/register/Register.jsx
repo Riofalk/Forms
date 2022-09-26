@@ -86,6 +86,9 @@ const Register = () => {
         </div>
       </div>
       <div className="register-right">
+        <div className="chirperRegisterSmall">
+          <Twitter className="logoIcon" />
+        </div>
         <section className="registrationContainer">
           <ErrMsg errMsg={errMsg} className="errmsg" />
           <h1 className="loginHeader">Register</h1>

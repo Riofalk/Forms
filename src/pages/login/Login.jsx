@@ -16,6 +16,9 @@ const Login = () => {
         </div>
       </div>
       <div className="register-right">
+        <div className="chirperRegisterSmall">
+          <Twitter className="logoIcon" />
+        </div>
         <section className="loginContainer">
           <h1 className="loginHeader">Log in</h1>
           <LoginForm />
