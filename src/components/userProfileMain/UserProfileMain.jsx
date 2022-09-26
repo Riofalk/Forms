@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
+import {useParams} from "react-router-dom";
 import Post from "../post/Post.jsx";
 import { Twitter } from "@mui/icons-material";
 import "./userProfileMain.css";
 import { Posts } from "../../dummyData.js";
 
-const UserProfileMain = (avatarUrl, profileName, profileId) => {
+const UserProfileMain = (passedValues) => {
+  const { id } = useParams()
+  const {userId, profileImg, userName} = passedValues;
   const [follow, setFollow] = useState(false);
   const followed = () => setFollow(!follow);
+  
 
   return (
     <div className="userProfileWrapper">
@@ -22,15 +26,15 @@ const UserProfileMain = (avatarUrl, profileName, profileId) => {
         </div>
         <div className="profileTopRight">
           <div className="profileTopTextWrapper">
-            <div className="profileTopTextName">React overlord</div>
-            <div className="profileTopTextId">@helloonceagain</div>
+            <div className="profileTopTextName">{userName}</div>
+            <div className="profileTopTextId">@{userId}</div>
             <div className="profileFollowWrapper">
-              <button
+              {id != userId &&<button
                 onClick={followed}
                 className={`followButton ${follow ? "followed" : ""}`}
               >
                 {follow ? "Following" : "+ Follow"}
-              </button>
+              </button>}
             </div>
           </div>
           <div className="twitterLogoProfile">

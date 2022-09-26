@@ -67,7 +67,7 @@ const Register = () => {
           },
           { withCredentials: true }
         ).then((res) => {
-          navigate("/home")
+          navigate("/login")
         })
       setRegisterSuccess(true);
     } catch (error) {

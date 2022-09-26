@@ -26,7 +26,7 @@ function TopBar(passedValues) {
           <input placeholder="Search..." className="searchInput" />
         </div>
         <div className="profileImgContainer">
-          <img onClick={ () => navigateToProfile()} src={"profilePic"} alt="" className="profileLinkImg" />
+          <img onClick={ () => navigateToProfile()} src={profileImg} alt="" className="profileLinkImg" />
         </div>
       </div>
     </div>

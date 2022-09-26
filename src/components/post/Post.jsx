@@ -23,9 +23,8 @@ function Post({ post }) {
               className="postProfileImg"
             />
             <span className="postUsername">
-              {Users.filter((u) => u.id === post.userId)[0].username}
+              Hello
             </span>
-            <span className="postDate">{post.date}</span>
           </div>
           <div className="postTopRight">
             <MoreVert />
@@ -33,23 +32,14 @@ function Post({ post }) {
         </div>
         <div className="postCenter">
           <div className="postText">{post?.desc}</div>
-          <img
-            src={post.photo}
-            className="postImg"
-            alt="this works there's just no photos"
-          />
         </div>
         <hr className="postHr" />
         <div className="postBottom">
           <div className="postBottomLeft">
-            <ThumbUp tabIndex="1" className="likeIcon" onClick={likeHandler} />
-            <Favorite tabIndex="2" className="likeIcon" onClick={likeHandler} />
+            <ThumbUp tabIndex="1" className={[isLiked ? "likeIcon-clicked": "", "likeIcon"]} onClick={likeHandler} />
             <span className="postlikeCounter">
-              {like} people have liked this
+               {like} people have liked this
             </span>
-          </div>
-          <div className="postBottomRight">
-            <span className="postCommentText">{post.comment} Comments</span>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import Rightbar from "../../components/rightbar/Rightbar.jsx";
+
 import Sidebar from "../../components/sidebar/Sidebar.jsx";
 import TopBar from "../../components/topBar/TopBar.jsx";
 import Feed from "../../components/feed/Feed.jsx";
@@ -21,12 +21,12 @@ function Home() {
     }
     response();
   }, []);
-  console.log(data)
-  const {userId, profileImg} = data;
+
+  const {userId, profileImg, userName} = data;
 
   return (
     <>
-      <TopBar userId={userId} profileImg={profileImg}/>
+      <TopBar userId={userId} profileImg={profileImg} userName={userName}/>
       <div className="homeContainer">
         <Sidebar  />
         <Feed profilePic={data.profileImg}/>

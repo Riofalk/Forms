@@ -35,9 +35,9 @@ export const loginUser = async (req, res) => {
 
         if (!isPasswordCorrect)  return res.status(404).send("User or password is not correct")
         
-        const { _id, profileImg } = user;
+        const { _id} = user;
 
-        const token = jwt.sign({id: _id, profileImg: profileImg, userId: userId}, process.env.KEY_GEN, {expiresIn: "2h"});
+        const token = jwt.sign({id: _id}, process.env.KEY_GEN, {expiresIn: "2h"});
         return res.
             cookie("session_token", token, {
             httpOnly: true,
