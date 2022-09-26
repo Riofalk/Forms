@@ -1,15 +1,15 @@
 import "./share.css";
 import { InsertPhoto, Label, Room, EmojiEmotions } from "@mui/icons-material";
-import placeholderImg from "../../img/placeholderProfileImg.png";
 
-function Share() {
+
+function Share(props) {
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
           <img
             className="shareProfileImg"
-            src={placeholderImg}
+            src={props.profileImg.profilePic}
             alt="Img of user"
           />
           <input placeholder="What's happening?" className="shareInput" />

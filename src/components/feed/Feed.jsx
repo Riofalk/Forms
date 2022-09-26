@@ -3,11 +3,11 @@ import Share from "../share/Share";
 import "./feed.css";
 import { Posts } from "../../dummyData.js";
 
-function Feed() {
+function Feed(profileImg) {
   return (
     <div className="feed">
       <div className="feedWrapper">
-        <Share />
+        <Share profileImg={profileImg} />
         {Posts.map((p) => (
           <Post key={p.id} post={p} />
         ))}

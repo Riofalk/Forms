@@ -4,31 +4,31 @@ import TopBar from "../../components/topBar/TopBar.jsx";
 import Feed from "../../components/feed/Feed.jsx";
 import "./home.css";
 import axios from "axios";
-
-const dataFetch = async () => {
-  try {
-    await axios
-      .get(
-        "http://localhost:4000/api/getUserInfo",)
-      .then((res) => {
-        console.log(res)
-      });
-    } catch (error) {
-    console.error(error);
-  }
-}
+import { useEffect, useState } from "react";
 
 function Home() {
 
-  dataFetch()
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const response = async () => {
+      try {
+        const {data} = await axios.get("http://localhost:4000/api/getUserInfo",{withCredentials: true})
+        setData(data);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    response();
+  }, []);
 
 
   return (
     <>
-      <TopBar profilePic={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN2vVVG2BOns1aicnn0wKmKn3aYtHCcBiysWlpz_c&s"}/>
+      <TopBar profilePic={data.profileImg}/>
       <div className="homeContainer">
         <Sidebar  />
-        <Feed />
+        <Feed profilePic={data.profileImg}/>
       </div>
     </>
   );
