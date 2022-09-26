@@ -1,15 +1,37 @@
 import "./share.css";
 import { InsertPhoto, Label, Room, EmojiEmotions } from "@mui/icons-material";
-import { useRef, useState, useEffect} from "react";
-
+import { useRef, useState, useEffect } from "react";
+import axios from "axios";
 
 function Share() {
   const [user, setUser] = useState("");
+  const [tweetText, setTweetText] = useState("");
+
+  const tweetSubmit = async (e) => {
+    try {
+      await axios.post(
+        "http://localhost:4000/tweet/:id",
+        {
+          tweetBy: user.toLowerCase(),
+          body: tweetText,
+        },
+        { withCredentials: true }
+      );
+    } catch (error) {
+      console.log("Something went wrong");
+    }
+  };
+
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <input placeholder="What's happening?" className="shareInput" />
+          <input
+            placeholder="What's happening?"
+            className="shareInput"
+            onChange={(e) => setTweetText(e.target.value)}
+          />
+          {console.log(tweetText)}
         </div>
         <hr className="shareHr" />
         <div className="shareBottom">
@@ -31,7 +53,9 @@ function Share() {
               <span className="shareOptionText">Emoji</span>
             </div>
           </div>
-          <button className="shareButton">Tweet</button>
+          <button onClick={tweetSubmit} className="shareButton">
+            Tweet
+          </button>
         </div>
       </div>
     </div>
